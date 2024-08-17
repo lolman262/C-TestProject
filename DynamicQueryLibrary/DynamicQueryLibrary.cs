@@ -12,7 +12,10 @@ namespace DynamicQueryLibrary
             {
                 return source;
             }
+
+            // Create a parameter expression
             var parameter = Expression.Parameter(typeof(T), "x");
+            // Create a binary expression
             var expression = filterCriterias
             .Select(criteria => GetExpression<T>(parameter, criteria))
             .Aggregate(Expression.AndAlso);

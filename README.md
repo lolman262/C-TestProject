@@ -8,6 +8,24 @@ This library allows for dynamically generating and executing EF Core queries bas
 - Expression Tree-based Filtering and Sorting
 - Generic Implementation
 - User-Friendly API
+
+
+### Getting Started
+
+To get started with the library, follow these steps:
+
+1. Clone the repository or download the source code.
+2. Reference the Class Library to the application.
+```
+dotnet add reference Path\To\Library\DynamicQueryLibrary.csproj
+```
+4. Import the DynamicQueryLibrary into your project by adding the following line to your project's dependencies:
+```csharp
+using MyClassLDynamicQueryLibraryibrary;
+```
+4. Build and run the application.
+
+
 ## Usage
 ### Step 1: Define Entities
 Define your entities as part of a DbContext.
@@ -37,6 +55,7 @@ Console.WriteLine($"{product.Name}: {product.Price}");
 - **FilterCriteria:** Represents a filtering criterion with a property name and value.
 - **SortCriteria:** Represents a sorting criterion with a property name and direction (`Ascending` or `Descending`).
 - **SortDirection:** Enum to signify sort direction.
-## License
-This library is licensed under the MIT License.
-```
+
+
+## Example Application
+The example application demonstrates how to use the FilterCriteria and SortCriteria classes to filter and sort a list of products dynamically. It uses Sqlite database and contains two tables: 'Customers' and 'Products'. 
