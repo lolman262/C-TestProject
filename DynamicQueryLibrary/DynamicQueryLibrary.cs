@@ -54,12 +54,12 @@ namespace DynamicQueryLibrary
     }
     public class FilterCriteria
     {
-        public string PropertyName { get; set; }
-        public object Value { get; set; }
+        public required string PropertyName { get; set; }
+        public required object Value { get; set; }
     }
     public class SortCriteria
     {
-        public string PropertyName { get; set; }
+        public required string PropertyName { get; set; }
         public SortDirection SortDirection { get; set; }
     }
     public enum SortDirection

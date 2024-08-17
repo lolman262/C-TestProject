@@ -54,7 +54,6 @@ Console.WriteLine($"{product.Name}: {product.Price}");
 ## Classes
 - **FilterCriteria:** Represents a filtering criterion with a property name and value.
 - **SortCriteria:** Represents a sorting criterion with a property name and direction (`Ascending` or `Descending`).
-- **SortDirection:** Enum to signify sort direction.
 
 
 ## Example Application

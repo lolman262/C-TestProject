@@ -83,14 +83,14 @@ namespace DynamicQueryExample
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public float Price { get; set; }
         public DateTime CreatedDate { get; set; }
     }
     public class Customer
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public DateTime BirthDate { get; set; }
     }
     public class ExampleDbContext : DbContext
