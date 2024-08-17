@@ -12,22 +12,20 @@ namespace DynamicQueryExample
             using (var context = new ExampleDbContext())
             {
                 // Ensure database is created and seed data
-                //context.Database.EnsureDeleted();
+                context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
                 SeedData(context);
                 // Define filter and sort criteria
-                var filterCriteria = new List<FilterCriteria>
-{
-new FilterCriteria { PropertyName = "Price", Value = 100m }
-};
-                var sortCriteria = new List<SortCriteria>
-{
-new SortCriteria { PropertyName = "Name", SortDirection = SortDirection.Ascending }
-};
+                var filterCriteria = new List<FilterCriteria>{
+                new FilterCriteria { PropertyName = "Price", Value = 100f }
+                };
+                var sortCriteria = new List<SortCriteria>{
+                new SortCriteria { PropertyName = "Price", SortDirection = SortDirection.Ascending }
+                };
                 // Apply dynamic filter and sort
                 var filteredAndSortedProducts = context.Products
-                .Where(filterCriteria)
-                .OrderBy(sortCriteria)
+                 .Where(filterCriteria)
+                 .OrderBy(sortCriteria)
                 .ToList();
                 // Display results
                 foreach (var product in filteredAndSortedProducts)
@@ -40,15 +38,15 @@ new SortCriteria { PropertyName = "Name", SortDirection = SortDirection.Ascendin
         {
             var products = new[]
             {
-new Product { Name = "Apple", Price = 200m, CreatedDate = DateTime.Now },
-new Product { Name = "Banana", Price = 100m, CreatedDate = DateTime.Now },
-new Product { Name = "Cherry", Price = 150m, CreatedDate = DateTime.Now }
-};
+            new Product { Name = "Apple", Price = 200, CreatedDate = DateTime.Now },
+            new Product { Name = "Banana", Price = 100, CreatedDate = DateTime.Now },
+            new Product { Name = "Cherry", Price = 150, CreatedDate = DateTime.Now }
+            };
             var customers = new[]
             {
-new Customer { Name = "John Doe", BirthDate = new DateTime(1990, 1, 1) },
-new Customer { Name = "Jane Doe", BirthDate = new DateTime(1985, 2, 15) }
-};
+            new Customer { Name = "John Doe", BirthDate = new DateTime(1990, 1, 1) },
+            new Customer { Name = "Jane Doe", BirthDate = new DateTime(1985, 2, 15) }
+            };
             context.Products.AddRange(products);
             context.Customers.AddRange(customers);
             context.SaveChanges();
@@ -58,7 +56,7 @@ new Customer { Name = "Jane Doe", BirthDate = new DateTime(1985, 2, 15) }
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public float Price { get; set; }
         public DateTime CreatedDate { get; set; }
     }
     public class Customer
@@ -73,7 +71,7 @@ new Customer { Name = "Jane Doe", BirthDate = new DateTime(1985, 2, 15) }
         public DbSet<Customer> Customers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseInMemoryDatabase("ExampleDb");
+          
             optionsBuilder.UseSqlite("Data Source=example.db");
         }
     }
